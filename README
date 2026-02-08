@@ -1,0 +1,139 @@
+/*******************************************************************************
+* Hw 01: CharArrayList
+* CS 15 Data Structures
+* README
+* Author: Edgar Gonzalez / egonza15
+*******************************************************************************/
+
+
+Program Purpose:
+---------------
+
+    TODO: 
+    - Most of my files center around three different 
+lists including a test_file list provided by the class.
+    - From a list that only has 1 capacity to another that can 
+take in more, i created different functions per the specs provided 
+that changed the structure of each list in different ways. with the 
+creation of these functions and the continual "modular testing" I 
+was able to pass an actual timer file with little to now errror.
+
+
+Compile/run:
+-----------
+
+    Compile and Run using the command "unit_test"
+
+
+Acknowledgments:
+---------------
+
+    TODO: I used  c++.com to assist me in my work. I also used 
+    piazza to see if there were any other students that had the same 
+    trouble as me. This and w3schools served as a huge help for me.
+    I spent approximately 10 hours on this homework due to the 
+    testing.
+
+
+Files:
+-----
+
+ArrayList.h: Interface for a simple ArrayList Class.
+
+ArrayList.cpp: Implementation of a simple ArrayList Class.
+    The default constructor for this class initializes an ArrayList 
+    to a size of 0, and a capacity of 10. 
+
+unit_tests.h: A unit testing file for the ArrayList Class. 
+    Runs in conjunction with the unit_test framework to allow for 
+    testing of individual functions.
+
+timer_main.cpp: A unit testing file for the ArrayList Class.
+---Runs a main() function, and when compiled and linked to the 
+completed CharArrayList class, an excutable will be created which 
+runs a number of CharArrayList operations and prints out the times 
+(in nanoseconds) taken to run those operations. All of these 
+operations are run on a fresh CharArrayList instance containing 
+1,000,000 random characters.
+
+Makefile: File to build the program.
+
+
+Data Structures:
+---------------
+
+This main data structure of this homework is an ArrayList, which is a 
+dynamically expanding array. If the number of items is ever equal 
+to the capacity, the array will automatically expand, allowing for an 
+arbitrary number of elements to be inserted into the ArrayList.
+
+
+Testing:
+-------
+
+    TODO: Testing has been done by every created class, constructor,
+and deconstructor. I would add cout text to ensure that each phase 
+worked.Most of the testing files have not been commented out incase for 
+any review.
+
+Questions:
+--------
+1. There are three categories of operations listed (insertion, removal,
+and access). Within each category, list the times each operation
+look and rank the operations from fastest to slowest.    
+
+All operations below are run on a separate, randomly generated
+CharArrayList of size 10000.
+----------------------------------------------------------------------
+ACCESS OPERATION                      //1           Time (nanoseconds)
+----------------------------------------------------------------------
+call last() 100 times                               290         //1
+----------------------------------------------------------------------
+call first() 100 times                              321         //2
+----------------------------------------------------------------------
+call elementAt() for middle of list 100 times       331         //3
+----------------------------------------------------------------------
+INSERTION OPERATION                 //2             Time (nanoseconds) 
+----------------------------------------------------------------------
+pushAtBack 100 times                                547         //1
+----------------------------------------------------------------------
+insertAt middle of list 100 times                   661967      //2
+----------------------------------------------------------------------
+pushAtFront 100 times                               1621030     //3
+----------------------------------------------------------------------
+REMOVAL OPERATION                      //3          Time (nanoseconds) 
+----------------------------------------------------------------------
+popFromBack 100 times                               329         //1
+----------------------------------------------------------------------
+removeAt middle of list 100 times                   1059536     //2
+----------------------------------------------------------------------
+popFromFront 100 times                              1355344     //3
+----------------------------------------------------------------------
+
+2. Discuss these rankings. 
+    Why were certain operations so much faster or slower than others? 
+    ---- The access operations will always on average be faster than the 
+    other operations based on the computer calculating the exact address 
+    of any index instantly using simple math.
+    ---- The insertion operations will take a relatively slower time due 
+    to the funtions shifting through arrays to make different insertions. 
+    the pushatBack function will be the fastest in this group due to 
+    the relative easier time a computer has in adding a new item to the 
+    end of the list.
+    ---- The removal operations on average, take a little longer to run 
+    through. Due to the remove functions. Which operations took 
+    approximately the same amount of time? 
+    ---- The call funcitons took about the same amount of time.
+    What are the features of array lists that caused these disparities 
+    or similarities in times?
+    ---- It could be the physical structure of how an array list is 
+    stored in computer memory. Array lists typically store their
+    elements in one unbroken block of memory. Which in turn makes the 
+    access functions fast. However, in turn this also affects other
+    functions and their ability to run. pushatFront is a good exmaple 
+    of this, becuase of the structure of the array list, the function 
+    cannot just put an item into the front. The computer has to shift 
+    the entire list to the right to make room.
+
+
+
