@@ -1,10 +1,7 @@
 /*
  * unit_tests.cpp
  *
- * CS 15 homework 1
- * by Tyler Calabrese, January 2021
- *
- * edited by: Milod Kazerounian, January 2022
+
  *
  * Example unit tests framework to test the CharArrayList class.
  *
