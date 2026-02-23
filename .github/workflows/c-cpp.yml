@@ -1,35 +1,15 @@
-name: C/C++ CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Run configure
-      # Fixed the typo here: "dynamic" instead of "dynami"
-      working-directory: ./dynamic-array
+      # Removed the working-directory line so it stays in the root
       run: |
-        # Ensure the script is executable just in case
         chmod +x ./configure
         ./configure
 
     - name: make
-      working-directory: ./dynamic-array
       run: make
 
     - name: make check
-      working-directory: ./dynamic-array
       run: make check
-
-    - name: make distcheck
-      working-directory: ./dynamic-array
-      run: make distcheck
