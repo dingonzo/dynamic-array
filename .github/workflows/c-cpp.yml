@@ -8,18 +8,28 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
     - name: Run configure
-      working-directory: .
-      run: ./configure
+      # Fixed the typo here: "dynamic" instead of "dynami"
+      working-directory: ./dynamic-array
+      run: |
+        # Ensure the script is executable just in case
+        chmod +x ./configure
+        ./configure
+
     - name: make
+      working-directory: ./dynamic-array
       run: make
+
     - name: make check
+      working-directory: ./dynamic-array
       run: make check
+
     - name: make distcheck
+      working-directory: ./dynamic-array
       run: make distcheck
